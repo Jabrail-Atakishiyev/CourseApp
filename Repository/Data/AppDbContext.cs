@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Repository.Data
 {
-    internal class AppDbContext
+    public static class AppDbContext<T>
     {
+        public static List<T> datas = new List<T>();
     }
 }
