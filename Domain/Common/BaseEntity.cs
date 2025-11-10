@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Common
 {
-    internal class BaseEntity
+    public class BaseEntity
     {
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime? UpdatedDate { get; set; }
     }
 }
