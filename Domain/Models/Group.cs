@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    public class Group : BaseEntity
+    public class Group
     {
-        public int groupId { get; set; }   
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Teacher { get; set; }
-        public string Room { get; set; }
+        public int Room { get; set; }
+        public DateTime UpdatedDate { get; set; }
     }
 }

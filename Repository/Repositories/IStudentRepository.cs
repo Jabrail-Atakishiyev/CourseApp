@@ -14,7 +14,6 @@ namespace Repository.Repository.Interface
         void UpdateStudent(int id, Student student);
         void DeleteStudent(int id);
         Student GetStudentById(int id);
-        List<Student> GetAllStudents();
         List<Student> GetStudentsByAge(int age);
         List<Student> GetAllStudentsByGroupId(int groupId);
         List<Student> SearchStudentByNameOrSurname(string keyword);

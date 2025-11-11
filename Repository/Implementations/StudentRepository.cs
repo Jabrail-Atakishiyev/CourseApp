@@ -23,11 +23,8 @@ namespace Repository.Repository
             if (existing == null) throw new NotFoundException("Student not found");
 
             existing.Name = student.Name;
-            existing.Surname = student.Surname;
             existing.Age = student.Age;
-            existing.Group = student.Group;
-            existing.UpdatedDate = DateTime.Now;
-        }
+            existing.Group = student.Group;        }
 
         public void DeleteStudent(int id)
         {
@@ -58,16 +55,16 @@ namespace Repository.Repository
         public List<Student> GetAllStudentsByGroupId(int groupId)
         {
             return AppDbContext<Student>.datas
-                     .Where(s => s.Group != null && s.Group.Id == groupId)
-                     .ToList();
+         .Where(s => s.Group != null && ((Group)s.Group).Id == groupId)
+         .ToList();
         }
 
         public List<Student> SearchStudentByNameOrSurname(string keyword)
         {
             return AppDbContext<Student>.datas
-                     .Where(s => s.Name.ToLower().Contains(keyword.ToLower())
-                              || s.Surname.ToLower().Contains(keyword.ToLower()))
-                     .ToList();
+         .Where(s => s.Name != null && s.Name.ToLower().Contains(keyword.ToLower()))
+         .ToList();
+
         }
     }
 }
