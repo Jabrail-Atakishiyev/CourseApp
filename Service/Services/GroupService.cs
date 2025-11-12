@@ -10,39 +10,42 @@ namespace Service.Services.Implementations
 {
     public class GroupService
     {
-        private static List<Group> _groups = new List<Group>();
-        private static int _idCounter = 1;
+        public static List<Group> _groups = new List<Group>();
+        public static int _idCounter = 1;
 
         public void CreateGroup()
         {
             Helper.WriteConsole(ConsoleColor.Yellow, "Enter group name:");
-            string name = Console.ReadLine();
+            string? name = Console.ReadLine();
             if (!Regex.IsMatch(name, @"[a-zA-Z0-9]") || string.IsNullOrWhiteSpace(name))
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Wrong option for group name!");
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Invalid option for group name!");
                 return;
             }
 
-            Helper.WriteConsole(ConsoleColor.Yellow, "Enter teacher name:");
-            string teacher = Console.ReadLine();
+            Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter teacher name:");
+            string? teacherName = Console.ReadLine();
+            Helper.WriteConsole(ConsoleColor.Yellow, "Enter teacher surname:");
+            string? teacherSurname = Console.ReadLine();
+            string? teacher = teacherName + " " + teacherSurname;
             if (string.IsNullOrWhiteSpace(teacher) || !Regex.IsMatch(teacher, @"^[a-zA-Z\s]+$"))
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Wrong option for teacher name!");
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Invalid teacher name or surname!");
                 return;
             }
 
-            Helper.WriteConsole(ConsoleColor.Yellow, "Enter room number:");
-            string roomNumber = Console.ReadLine();
+            Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter room number:");
+            string? roomNumber = Console.ReadLine();
             if (!int.TryParse(roomNumber, out int room))
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Wrong room number");
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Wrong room number");
                 return;
             }
             if (_groups.Any(g => g.Name.Equals(name, StringComparison.OrdinalIgnoreCase)
                  && g.Teacher.Equals(teacher, StringComparison.OrdinalIgnoreCase)
                  && g.Room == room))
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Group already exists!");
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Group already exists!");
                 return;
             }
 
@@ -55,86 +58,95 @@ namespace Service.Services.Implementations
             };
 
             _groups.Add(group);
-            Helper.WriteConsole(ConsoleColor.Green, $"Group {name} created successfully!");
+            Helper.WriteConsole(ConsoleColor.DarkGreen, $"Group {name} created successfully!");
         }
 
         public void UpdateGroup()
         {
-            Helper.WriteConsole(ConsoleColor.Yellow, "Enter group ID to update:");
-            if (!int.TryParse(Console.ReadLine(), out int id))
+            int id;
+            while (true)
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Wrong ID!");
-                return;
+                Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter group ID to update:");
+                if (int.TryParse(Console.ReadLine(), out id))
+                    break;
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Invalid ID! Please enter a number.");
             }
 
             var group = _groups.FirstOrDefault(x => x.Id == id);
             if (group == null)
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Group not found!");
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Group not found!");
                 return;
             }
 
-            Helper.WriteConsole(ConsoleColor.Yellow, "Enter new name:");
-            string newName = Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(newName))
+            string? name;
+            while (true)
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Name cannot be empty!");
-                return;
+                Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter new group name:");
+                name = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(name) && Regex.IsMatch(name, @"^[a-zA-Z0-9\s]+$"))
+                    break;
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Invalid group name! Please try again.");
             }
-            group.Name = newName;
 
-            Helper.WriteConsole(ConsoleColor.Yellow, "Enter new teacher name:");
-            string teacher = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(teacher) || teacher.Any(char.IsDigit))
+            string? teacherName;
+            while (true)
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Wrong teacher name!");
-                return;
+                Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter new teacher name:");
+                teacherName = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(teacherName) && Regex.IsMatch(teacherName, @"^[a-zA-Z]+$"))
+                    break;
+                Helper.WriteConsole(ConsoleColor.Red, "Invalid teacher name! Please try again.");
             }
+
+            string? teacherSurname;
+            while (true)
+            {
+                Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter new teacher surname:");
+                teacherSurname = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(teacherSurname) && Regex.IsMatch(teacherSurname, @"^[a-zA-Z]+$"))
+                    break;
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Invalid teacher surname! Please try again.");
+            }
+
+            string teacher = $"{teacherName} {teacherSurname}";
+
+            int room;
+            while (true)
+            {
+                Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter new room number:");
+                if (int.TryParse(Console.ReadLine(), out room))
+                    break;
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Invalid room number! Please enter a number.");
+            }
+
+            group.Name = name;
             group.Teacher = teacher;
+            group.Room = room;
 
-            Helper.WriteConsole(ConsoleColor.Yellow, "Enter new room number:");
-            string roomInput = Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(roomInput))
-            {
-                Helper.WriteConsole(ConsoleColor.Red, "Room number cannot be empty!");
-                return;
-            }
-
-            if (int.TryParse(roomInput, out int room))
-            {
-                group.Room = room;
-            }
-            else
-            {
-                Helper.WriteConsole(ConsoleColor.Red, "Wrong room number!");
-                return;
-            }
-
-            Helper.WriteConsole(ConsoleColor.Green, "Group updated successfully!");
-
+            Helper.WriteConsole(ConsoleColor.DarkGreen, "Group updated successfully!");
         }
+
 
 
         public void DeleteGroup()
         {
-            Helper.WriteConsole(ConsoleColor.Yellow, "Enter group ID to delete:");
+            Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter group ID to delete:");
             if (!int.TryParse(Console.ReadLine(), out int id))
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Wrong ID!");
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Wrong ID!");
                 return;
             }
 
             var group = _groups.FirstOrDefault(x => x.Id == id);
             if (group == null)
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Group not found!");
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Group not found!");
                 return;
             }
 
             _groups.Remove(group);
-            Helper.WriteConsole(ConsoleColor.Red, $"Group {group.Name} deleted successfully!");
+            Helper.WriteConsole(ConsoleColor.DarkRed, $"Group {group.Name} deleted successfully!");
         }
 
         public void GetByIdGroup()
@@ -142,62 +154,138 @@ namespace Service.Services.Implementations
             Helper.WriteConsole(ConsoleColor.Yellow, "Enter group ID:");
             if (!int.TryParse(Console.ReadLine(), out int id))
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Wrong ID!");
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Wrong ID!");
                 return;
             }
 
             var group = _groups.FirstOrDefault(x => x.Id == id);
             if (group == null)
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Group not found!");
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Group not found!");
                 return;
             }
 
-            Helper.WriteConsole(ConsoleColor.DarkGray, $"ID: {group.Id}, Name: {group.Name}, Teacher: {group.Teacher}, Room: {group.Room}");
+            Helper.WriteConsole(ConsoleColor.DarkGray, $"ID: {group.Id}| Name: {group.Name}| Teacher: {group.Teacher}| Room: {group.Room}");
         }
 
         public void GetAllGroups()
         {
             if (!_groups.Any())
             {
-                Helper.WriteConsole(ConsoleColor.Red, "No groups found!");
+                Helper.WriteConsole(ConsoleColor.DarkRed, "No groups found!");
                 return;
             }
 
             foreach (var group in _groups)
             {
-                Helper.WriteConsole(ConsoleColor.DarkGray, $"ID: {group.Id}, Name: {group.Name}, Teacher: {group.Teacher}, Room: {group.Room}");
+                Helper.WriteConsole(ConsoleColor.DarkGray, $"ID: {group.Id}| Name: {group.Name}| Teacher: {group.Teacher}| Room: {group.Room}");
             }
         }
 
-        public List<Group> GetAllGroupsByTeacher(string teacher)
+        public List<Group> GetAllGroupsByTeacher()
         {
-            var groups = _groups
-                .Where(x => !string.IsNullOrEmpty(x.Teacher) &&
-                            x.Teacher.ToLower().Contains(teacher.ToLower()))
+            string fullName;
+
+            while (true)
+            {
+                Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter teacher name:");
+                string? teacherName = Console.ReadLine()?.Trim();
+
+                Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter teacher surname:");
+                string? teacherSurname = Console.ReadLine()?.Trim();
+
+                fullName = $"{teacherName} {teacherSurname}".Trim();
+
+                if (string.IsNullOrWhiteSpace(fullName) || fullName.Any(char.IsDigit))
+                {
+                    Helper.WriteConsole(ConsoleColor.DarkRed, "Wrong teacher name or surname! Try again.");
+                    continue;
+                }
+
+                fullName = Regex.Replace(fullName, @"\s+", " ");
+                break;
+            }
+
+            var exactGroups = _groups
+                .Where(g =>Regex.Replace(g.Teacher, @"\s+", " ")
+                            .Equals(fullName, StringComparison.OrdinalIgnoreCase))
                 .ToList();
 
+            if (exactGroups.Any())
+            {
+                Helper.WriteConsole(ConsoleColor.DarkGreen, $"Groups taught by {fullName}:");
+                foreach (var g in exactGroups)
+                    Helper.WriteConsole(ConsoleColor.DarkGray, $"ID: {g.Id}| Name: {g.Name}| Room: {g.Room}");
+                return exactGroups;
+            }
+
+            var initialsGroups = _groups
+                .Where(g =>
+                {
+                    string[] inputParts = fullName.Split(' ');
+                    string[] teacherParts = g.Teacher.Split(' ');
+
+                    if (inputParts.Length != teacherParts.Length) return false;
+
+                    for (int i = 0; i < inputParts.Length; i++)
+                    {
+                        if (!teacherParts[i].StartsWith(inputParts[i], StringComparison.OrdinalIgnoreCase))
+                            return false;
+                    }
+                    return true;
+                })
+                .ToList();
+
+            if (initialsGroups.Any())
+            {
+                Helper.WriteConsole(ConsoleColor.DarkGreen, $"Groups matching initials '{fullName}':");
+                foreach (var g in initialsGroups)
+                    Helper.WriteConsole(ConsoleColor.DarkGray, $"ID: {g.Id}| Name: {g.Name}| Room: {g.Room} " +
+                        $"Teacher's fullname : {g.Teacher}");
+                return initialsGroups;
+            }
+
+            Helper.WriteConsole(ConsoleColor.DarkRed, $"No groups found for '{fullName}'.");
+            return new List<Group>();
+        }
+
+
+        public List<Group> GetAllGroupsByRoom()
+        {
+            Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter room number:");
+            string? roomInput = Console.ReadLine();
+
+            if (!int.TryParse(roomInput, out int room))
+            {
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Wrong room number!");
+                return new List<Group>();
+            }
+
+            var groups = _groups.Where(x => x.Room == room).ToList();
+
             if (!groups.Any())
             {
-                Helper.WriteConsole(ConsoleColor.Red, $"No groups found for teacher '{teacher}'.");
+                Helper.WriteConsole(ConsoleColor.DarkRed, $"No groups found in room {room}");
+                return groups;
+            }
+
+            Helper.WriteConsole(ConsoleColor.DarkGreen, $"Groups in room {room}:");
+            foreach (var g in groups)
+            {
+                Helper.WriteConsole(ConsoleColor.DarkGray, $"ID: {g.Id}, Name: {g.Name}, Teacher: {g.Teacher}, Room: {g.Room}");
             }
 
             return groups;
         }
 
-        public List<Group> GetAllGroupsByRoom(int room)
+        public List<Group> SearchMethodForGroupsByName()
         {
-            var groups = _groups.Where(x => x.Room == room).ToList();
-            if (!groups.Any())
-                Helper.WriteConsole(ConsoleColor.Red, $"No groups found in room {room}");
-            return groups;
-        }
+            Helper.WriteConsole(ConsoleColor.DarkYellow, "Enter group name to search:");
+            string? name = Console.ReadLine();
 
-        public List<Group> SearchMethodForGroupsByName(string name)
-        {
             if (string.IsNullOrWhiteSpace(name))
             {
-                Helper.WriteConsole(ConsoleColor.Red, "Group name cannot be empty!");
+                Helper.WriteConsole(ConsoleColor.DarkRed, "Group name cannot be empty!");
                 return new List<Group>();
             }
 
@@ -206,15 +294,21 @@ namespace Service.Services.Implementations
                 .ToList();
 
             if (!groups.Any())
-                Helper.WriteConsole(ConsoleColor.Red, $"No group found with name '{name}'.");
+            {
+                Helper.WriteConsole(ConsoleColor.DarkRed, $"No group found with name '{name}'.");
+                return groups;
+            }
+
+            Helper.WriteConsole(ConsoleColor.DarkGreen, $"Search results for '{name}':");
+            foreach (var g in groups)
+            {
+                Helper.WriteConsole(ConsoleColor.DarkGray, $"ID: {g.Id}, Name: {g.Name}, Teacher: {g.Teacher}, Room: {g.Room}");
+            }
 
             return groups;
         }
 
-    }
 
-    internal class UpdatedDate
-    {
     }
 }
 

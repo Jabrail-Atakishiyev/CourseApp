@@ -3,17 +3,34 @@
   "WorkspaceRootPath": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0FD4748D-2BCB-46CB-9139-6BA3C2030B32}|..\\Service\\Service.csproj|c:\\users\\vito\\desktop\\courseapp\\service\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0FD4748D-2BCB-46CB-9139-6BA3C2030B32}|..\\Service\\Service.csproj|c:\\users\\vito\\desktop\\courseapp\\service\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B65B35CE-700F-44E5-93F4-0622DEA263DE}|..\\Domain\\Domain.csproj|c:\\users\\vito\\desktop\\courseapp\\domain\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|c:\\users\\vito\\desktop\\courseapp\\courseapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|c:\\users\\vito\\desktop\\courseapp\\courseapp\\menus\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|solutionrelative:menus\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|c:\\users\\vito\\desktop\\courseapp\\courseapp\\menus\\groupmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|solutionrelative:menus\\groupmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|c:\\users\\vito\\desktop\\courseapp\\courseapp\\menus\\studentmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|solutionrelative:menus\\studentmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|c:\\users\\vito\\desktop\\courseapp\\courseapp\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|solutionrelative:controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|c:\\users\\vito\\desktop\\courseapp\\courseapp\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{252CDAF8-6502-4EFA-B150-13F46DC5BA59}|CourseApp.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FD4748D-2BCB-46CB-9139-6BA3C2030B32}|..\\Service\\Service.csproj|c:\\users\\vito\\desktop\\courseapp\\service\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,58 +40,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BaseEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Vito\\Desktop\\courseapp\\Domain\\Common\\BaseEntity.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\Common\\BaseEntity.cs",
-              "ToolTip": "C:\\Users\\Vito\\Desktop\\courseapp\\Domain\\Common\\BaseEntity.cs",
-              "RelativeToolTip": "..\\Domain\\Common\\BaseEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T22:28:04.405Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GroupService.cs",
-              "DocumentMoniker": "C:\\Users\\Vito\\Desktop\\courseapp\\Service\\Services\\GroupService.cs",
-              "RelativeDocumentMoniker": "..\\Service\\Services\\GroupService.cs",
-              "ToolTip": "C:\\Users\\Vito\\Desktop\\courseapp\\Service\\Services\\GroupService.cs*",
-              "RelativeToolTip": "..\\Service\\Services\\GroupService.cs*",
-              "ViewState": "AgIAABUAAAAAAAAAAAAUwCYAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T20:46:52.665Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "StudentService.cs",
               "DocumentMoniker": "C:\\Users\\Vito\\Desktop\\courseapp\\Service\\Services\\StudentService.cs",
               "RelativeDocumentMoniker": "..\\Service\\Services\\StudentService.cs",
               "ToolTip": "C:\\Users\\Vito\\Desktop\\courseapp\\Service\\Services\\StudentService.cs",
               "RelativeToolTip": "..\\Service\\Services\\StudentService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAABwAAABRAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAswGkAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T14:28:07.842Z",
+              "WhenOpened": "2025-11-12T15:37:07.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GroupService.cs",
+              "DocumentMoniker": "C:\\Users\\Vito\\Desktop\\courseapp\\Service\\Services\\GroupService.cs",
+              "RelativeDocumentMoniker": "..\\Service\\Services\\GroupService.cs",
+              "ToolTip": "C:\\Users\\Vito\\Desktop\\courseapp\\Service\\Services\\GroupService.cs",
+              "RelativeToolTip": "..\\Service\\Services\\GroupService.cs",
+              "ViewState": "AgIAAPMAAAAAAAAAAAAEwPwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T15:36:24.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "Controllers\\StudentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T14:51:05.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GroupController.cs",
+              "DocumentMoniker": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Controllers\\GroupController.cs",
+              "RelativeDocumentMoniker": "Controllers\\GroupController.cs",
+              "ToolTip": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Controllers\\GroupController.cs",
+              "RelativeToolTip": "Controllers\\GroupController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T14:50:57.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StudentMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Menus\\StudentMenu.cs",
+              "RelativeDocumentMoniker": "Menus\\StudentMenu.cs",
+              "ToolTip": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Menus\\StudentMenu.cs",
+              "RelativeToolTip": "Menus\\StudentMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T14:50:50.509Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "GroupMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Menus\\GroupMenu.cs",
+              "RelativeDocumentMoniker": "Menus\\GroupMenu.cs",
+              "ToolTip": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Menus\\GroupMenu.cs",
+              "RelativeToolTip": "Menus\\GroupMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T14:50:40.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Menus\\MainMenu.cs",
+              "RelativeDocumentMoniker": "Menus\\MainMenu.cs",
+              "ToolTip": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Menus\\MainMenu.cs",
+              "RelativeToolTip": "Menus\\MainMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T14:50:29.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Vito\\Desktop\\courseapp\\CourseApp\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAowM4AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-10T15:50:56.738Z",
+              "WhenOpened": "2025-11-12T03:59:43.452Z",
               "EditorCaption": ""
             }
           ]
