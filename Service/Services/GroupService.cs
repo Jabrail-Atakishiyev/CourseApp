@@ -41,9 +41,8 @@ namespace Service.Services.Implementations
                 Helper.WriteConsole(ConsoleColor.DarkRed, "Wrong room number");
                 return;
             }
-            if (_groups.Any(g => g.Name.Equals(name, StringComparison.OrdinalIgnoreCase)
-                 && g.Teacher.Equals(teacher, StringComparison.OrdinalIgnoreCase)
-                 && g.Room == room))
+            if (_groups.Any(g => g.Name.Trim().ToLower() == name.Trim().ToLower() &&
+                         g.Teacher.Trim().ToLower() == teacher.Trim().ToLower()))
             {
                 Helper.WriteConsole(ConsoleColor.DarkRed, "Group already exists!");
                 return;
